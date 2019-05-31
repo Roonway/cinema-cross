@@ -1,4 +1,7 @@
 <?php
+
+use yii\web\UrlManager;
+
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -8,6 +11,11 @@ return [
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'backendUrlManager' => [
+            'class' => UrlManager::class,
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
         ],
     ],
 ];
