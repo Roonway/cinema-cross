@@ -2,8 +2,9 @@
 
 use console\migrations\base\Migration;
 
-class m130524_201442_init extends Migration
+class m130524_201442_create_user_table extends Migration
 {
+
     public function up()
     {
         $this->createTable('{{%user}}', [
@@ -18,6 +19,20 @@ class m130524_201442_init extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $this->getDefaultTableOptions());
+
+        $names = ['Roney', 'Emanuel', 'Larissa', 'Gregory'];
+
+        foreach ($names as $name){
+            $this->insert('{{%user}}', [
+                'email' => "$name@gmail.com",
+                'username' => $name,
+                'auth_key' => Yii::$app->security->generateRandomString(),
+                'password_hash' => Yii::$app->security->generatePasswordHash('user'),
+                'created_at' => time(),
+                'updated_at' => time(),
+            ]);
+        }
+
     }
 
     public function down()
