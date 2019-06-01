@@ -1,41 +1,47 @@
 <?php
-use yii\helpers\Html;
+
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-$this->title = 'Sign In';
+$this->title = 'Entrar';
 
-$fieldOptions1 = [
-    'options' => ['class' => 'form-group has-feedback'],
-    'inputTemplate' => "{input}<span class='glyphicon glyphicon-envelope form-control-feedback'></span>"
-];
-
-$fieldOptions2 = [
-    'options' => ['class' => 'form-group has-feedback'],
-    'inputTemplate' => "{input}<span class='glyphicon glyphicon-lock form-control-feedback'></span>"
-];
 ?>
 
 <div class="login-box">
-    <div class="login-logo">
-        <img src="/images/cinema.gif" alt="" height="150px">
+
+    <div class="login-logo row">
+        <div class="col-md-6">
+            <img src="/images/cinema.gif">
+        </div>
+        <div class="col-md-6">
+            <h1>Cinema<br>Planet</h1>
+        </div>
     </div>
+
+
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Entrar para inciar sua sessão</p>
+        <p class="login-box-msg">Entre para inciar sua sessão</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
 
         <?= $form
-            ->field($model, 'email', $fieldOptions1)
+            ->field($model, 'email', [
+                'options' => ['class' => 'form-group has-feedback'],
+                'inputTemplate' => "{input}<span class='glyphicon glyphicon-envelope form-control-feedback'></span>"
+            ])
             ->label(false)
             ->textInput(['placeholder' => $model->getAttributeLabel('email')]) ?>
 
         <?= $form
-            ->field($model, 'password', $fieldOptions2)
+            ->field($model, 'password', [
+                'options' => ['class' => 'form-group has-feedback'],
+                'inputTemplate' => "{input}<span class='glyphicon glyphicon-lock form-control-feedback'></span>"
+            ])
             ->label(false)
             ->passwordInput(['placeholder' => $model->getAttributeLabel('password')]) ?>
 
@@ -49,8 +55,6 @@ $fieldOptions2 = [
             </div>
             <!-- /.col -->
         </div>
-
-
         <?php ActiveForm::end(); ?>
 
         <a href="#">I forgot my password</a><br>
