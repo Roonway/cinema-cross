@@ -16,7 +16,11 @@ class m190602_002355_client_table extends Migration
             'id' => $this->primaryKey(),
             'cpf' => $this->string(11)->notNull()->unique(),
             'name' => $this->string(255),
-            'email' =>
+            'email' => $this->string(255)->unique(),
+            'birthday' => $this->date(),
+            'street' => $this->string(255),
+            'district' => $this->string(50),
+            'city' => $this->string(50)->notNull()
         ]);
     }
 

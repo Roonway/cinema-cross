@@ -14,7 +14,7 @@ class m190602_015022_seat extends Migration
     {
         $this->createTable('{{%seat}}', [
             'id' => $this->primaryKey(),
-            $this->addForeignKey('fk-seat-room_id', '{{%seat}}', 'seat_quant', '{{%room}}', 'id', 'CASCADE', 'CASCADE'),
+            $this->addForeignKey('fk-seat-room_id', '{{%seat}}', 'seat_id', '{{%room}}', 'id', 'CASCADE', 'CASCADE'),
         ]);
     }
 
