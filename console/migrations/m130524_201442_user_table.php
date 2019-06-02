@@ -2,7 +2,7 @@
 
 use console\migrations\base\Migration;
 
-class m130524_201442_create_user_table extends Migration
+class m130524_201442_user_table extends Migration
 {
 
     public function up()
@@ -20,7 +20,7 @@ class m130524_201442_create_user_table extends Migration
             'updated_at' => $this->integer()->notNull(),
         ], $this->getDefaultTableOptions());
 
-        $names = ['Roney', 'Emanuel', 'Larissa', 'Gregory'];
+        $names = ['Roney', 'Emanuel', 'Gregory'];
 
         foreach ($names as $name){
             $this->insert('{{%user}}', [

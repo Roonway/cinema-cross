@@ -10,6 +10,11 @@ use Faker\Provider\pt_BR\Company;
 use Faker\Provider\pt_BR\Person;
 use Faker\Provider\pt_BR\PhoneNumber;
 
+/*
+ *  Qualquer dúvida quanto ao Faker acessar o https://github.com/fzaninotto/Faker
+ */
+
+
 abstract class TableSeeder extends Migration
 {
     /**
