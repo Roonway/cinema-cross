@@ -20,7 +20,7 @@ class m190602_172737_employee_table extends Migration
             'street' => $this->string(255)->notNull(),
             'district' => $this->string(50)->notNull(),
             'city' => $this->string(50)->notNull(),
-
+            'room_id' => $this->integer(),
             $this->addForeignKey('fk_employee_room_id','{{%employee}}','room_id','{{%room}}','id','CASCADE','CASCADE')
 
         ]);
