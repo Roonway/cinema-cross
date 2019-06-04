@@ -20,7 +20,9 @@ class m190602_002355_client_table extends Migration
             'birthday' => $this->date(),
             'street' => $this->string(255),
             'district' => $this->string(50),
-            'city' => $this->string(50)->notNull()
+            'city' => $this->string(50)->notNull(),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
         ]);
     }
 

@@ -12,10 +12,11 @@ class m190602_175930_genre_table extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('{{%genre}}',[
-           'id' => $this->primaryKey(),
-           'category' => $this->string(50)->notNull()->unique()
-
+        $this->createTable('{{%genre}}', [
+            'id' => $this->primaryKey(),
+            'category' => $this->string(50)->notNull()->unique(),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
         ]);
     }
 

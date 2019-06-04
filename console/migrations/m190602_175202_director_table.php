@@ -14,10 +14,9 @@ class m190602_175202_director_table extends Migration
     {
         $this->createTable('{{%director}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string(255)->notNull()->unique()
-
-
-
+            'name' => $this->string(255)->notNull()->unique(),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
         ]);
     }
 

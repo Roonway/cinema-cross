@@ -15,6 +15,8 @@ class m190602_013243_room extends Migration
         $this->createTable('{{%room}}', [
             'id' => $this->primaryKey(),
             'seat_quant' => $this->integer()->notNull(),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
             ]);
     }
 

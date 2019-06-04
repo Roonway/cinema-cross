@@ -15,8 +15,13 @@ class m190602_015022_seat extends Migration
         $this->createTable('{{%seat}}', [
             'id' => $this->primaryKey(),
             'room_id' => $this->integer(),
-            $this->addForeignKey('fk-seat-room_id', '{{%seat}}', 'room_id', '{{%room}}', 'id', 'CASCADE', 'CASCADE'),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
         ]);
+
+        $this->createIndex('idx-seat-room_id', '{{%seat}}', 'room_id');
+
+        $this->addForeignKey('fk-seat-room_id', '{{%seat}}', 'room_id', '{{%room}}', 'id', 'CASCADE', 'CASCADE');
     }
 
     /**

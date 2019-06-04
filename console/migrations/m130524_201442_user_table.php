@@ -13,12 +13,15 @@ class m130524_201442_user_table extends Migration
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string()->unique(),
-            'email' => $this->string()->notNull()->unique(),
-
+            'employee_id' => $this->integer()->notNull(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $this->getDefaultTableOptions());
+
+        $this->createIndex('idx-user-employee_id', '{{%user}}', 'employee_id');
+
+        $this->addForeignKey('fk-user-employee_id', '{{%user}}', 'employee_id', '{{%employee}}', 'id', 'CASCADE', 'CASCADE');
 
         $names = ['Roney', 'Emanuel', 'Gregory'];
 
