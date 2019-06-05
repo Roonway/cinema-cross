@@ -23,9 +23,13 @@ class ClientSeeder extends TableSeeder
 
             $this->insert('{{%client}}', [
                 'cpf' => $this->faker->cpf(false),
-                'name' => $this->faker->name($this->faker->boolean ? 'male' : 'famale'),
+                'name' => $this->faker->name($this->faker->boolean ? 'male' : 'female'),
+                'email' => $this->faker->email,
+                'birthday' => $this->faker->date(),
+                'street' => $this->faker->streetName,
                 'district' => $this->faker->citySuffix,
-                'price' => $this->faker->randomFloat(2,0, 999),
+                'city' => $this->faker->city,
+                ''
 
             ]);
 
