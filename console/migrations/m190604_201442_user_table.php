@@ -2,7 +2,7 @@
 
 use console\migrations\base\Migration;
 
-class m130524_201442_user_table extends Migration
+class m190604_201442_user_table extends Migration
 {
 
     public function up()
@@ -13,7 +13,7 @@ class m130524_201442_user_table extends Migration
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string()->unique(),
-            'employee_id' => $this->integer()->notNull(),
+            'employee_id' => $this->integer()->unique(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
