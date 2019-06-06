@@ -18,6 +18,8 @@ class m190602_180410_phone_employee_table extends Migration
         $this->createTable('{{%phone_employee}}',[
             'employee_id' => $this->integer(),
             'phone' => $this->string(15)->unique()->notNull(),
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
         ]);
 
         $this->createIndex('idx-phone_employee-employee_id', '{{%phone_employee}}', 'employee_id');
