@@ -19,7 +19,6 @@ class m190602_184454_sale_table extends Migration
             'total_price' => $this->float(),
             'sale_date' => $this->dateTime()->notNull(),
             'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
         ]);
         $this->createIndex('idx-sale-client_id-product_id', '{{%sale}}', ['client_id', 'product_id'], true);
         $this->createIndex('idx-sale-client_id', '{{%sale}}', 'client_id');

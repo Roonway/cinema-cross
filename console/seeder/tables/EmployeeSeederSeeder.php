@@ -21,8 +21,18 @@ class EmployeeSeeder extends TableSeeder
             $this->insert('{{%employee}}', [
 
                 'name' => $this->faker->name($this->faker->boolean ? 'male' : 'female'),
-                'email' => $this->faker->email,
-                'birthday' => $this->faker->dateTimeThisCentury(),
+                'birthday' => $this->faker->date('Y-m-d', '-16 years'),
+                'email' => "funcionario$employee@gmail.com",
+                'cpf' => $this->faker->cpf(false),
+                'street' => $this->faker->streetName,
+                'number' => $this->faker->buildingNumber,
+                'district' => $this->faker->citySuffix,
+                'city' => $this->faker->city,
+                'room_id' => $this->faker->numberBetween(1, DatabaseSeeder::ROOM_COUNT),
+                'manager' => $this->faker->boolean ? ($this->faker->boolean) : false,
+                'created_at' => $this->createdAt,
+                'updated_at' => $this->updatedAt,
+
             ]);
         }, DatabaseSeeder::CLIENT_COUNT);
     }

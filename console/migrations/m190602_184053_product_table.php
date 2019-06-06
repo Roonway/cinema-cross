@@ -20,7 +20,7 @@ class m190602_184053_product_table extends Migration
             'unit_price' => $this->float(2),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
-            ]);
+        ]);
     }
 
     /**

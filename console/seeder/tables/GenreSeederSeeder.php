@@ -14,14 +14,14 @@ class GenreSeeder extends TableSeeder
         $this->disableForeginKeyChecks();
         $this->truncateTable('{{%genre}}');
         $this->enableForeginKeyChecks();
+
         loop( function ($genre) {
 
             $this->generate();
 
             $this->insert('{{%genre}}', [
-
-                'category' => $this->faker->randomNumber(1),
+                'category' => "Categoria $genre"
             ]);
-        }, DatabaseSeeder::CLIENT_COUNT);
+        }, DatabaseSeeder::GENRE_COUNT);
     }
 }

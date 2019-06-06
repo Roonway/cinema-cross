@@ -22,12 +22,13 @@ class ProductSeeder extends TableSeeder
             $this->generate();
 
             $this->insert('{{%product}}', [
-                'name' => $this->faker->name,
-                'description' => $this->faker->text(30),
+                'name' => "Produto $product",
+                'description' => $this->faker->text(15),
                 'unit_price' => $this->faker->randomFloat(2,0, 999),
-
+                'created_at' => $this->createdAt,
+                'updated_at' => $this->updatedAt,
             ]);
 
-        }, DatabaseSeeder::CLIENT_COUNT);
+        }, DatabaseSeeder::PRODUCT_COUNT);
     }
 }

@@ -1,31 +1,44 @@
 <?php
+
 namespace console\seeder\tables;
-use Yii;
-use console\seeder\TableSeeder;
+
 use console\seeder\DatabaseSeeder;
 use console\seeder\helpers\CreatedAtUpdatedAt;
+use console\seeder\TableSeeder;
 
 
 class SaleSeeder extends TableSeeder
 {
     use CreatedAtUpdatedAt;
+
     function run()
     {
         $this->disableForeginKeyChecks();
         $this->truncateTable('{{%sale}}');
         $this->enableForeginKeyChecks();
-        loop( function ($sale) {
 
-            $this->generate();
+        loop(function ($product) {
 
-            $this->insert('{{%sale}}', [
+            loop(function ($client) use ($product) {
 
-                'quantity' => $this->faker->randomNumber(2),
-                'total_price' => $this->faker->randomFloat(2, 0, 999),
-                'sale_date' => $this->faker->dateTimeThisYear,
+                $this->generate();
 
-            ]);
-        }, DatabaseSeeder::CLIENT_COUNT);
+                if ($this->faker->boolean) {
+
+                    $amount = $this->faker->numberBetween(1, 99);
+
+                    $this->insert('{{%sale}}', [
+                        'product_id' => $product,
+                        'client_id' => $client,
+                        'quantity' => $amount,
+                        'total_price' => $this->faker->randomFloat(2, 0, 99) * $amount,
+                        'sale_date' => $this->faker->date('Y-m-d'),
+                        'created_at' => $this->createdAt,
+                    ]);
+                }
+            }, DatabaseSeeder::CLIENT_COUNT);
+
+        }, DatabaseSeeder::PRODUCT_COUNT);
     }
 }
 

@@ -10,6 +10,7 @@ class m190604_201442_user_table extends Migration
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull()->unique(),
+            'email' => $this->string(255)->unique(),
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string()->unique(),
@@ -22,20 +23,6 @@ class m190604_201442_user_table extends Migration
         $this->createIndex('idx-user-employee_id', '{{%user}}', 'employee_id');
 
         $this->addForeignKey('fk-user-employee_id', '{{%user}}', 'employee_id', '{{%employee}}', 'id', 'CASCADE', 'CASCADE');
-
-        $names = ['Roney', 'Emanuel', 'Gregory'];
-
-        foreach ($names as $name){
-            $this->insert('{{%user}}', [
-                'email' => "$name@gmail.com",
-                'username' => $name,
-                'auth_key' => Yii::$app->security->generateRandomString(),
-                'password_hash' => Yii::$app->security->generatePasswordHash('user'),
-                'created_at' => time(),
-                'updated_at' => time(),
-            ]);
-        }
-
     }
 
     public function down()

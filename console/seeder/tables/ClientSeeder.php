@@ -22,14 +22,15 @@ class ClientSeeder extends TableSeeder
             $this->generate();
 
             $this->insert('{{%client}}', [
-                'cpf' => $this->faker->cpf(false),
                 'name' => $this->faker->name($this->faker->boolean ? 'male' : 'female'),
                 'email' => $this->faker->email,
-                'birthday' => $this->faker->date(),
+                'birthday' => $this->faker->date('Y-m-d', '-5 years'),
                 'street' => $this->faker->streetName,
+                'number' => $this->faker->buildingNumber,
                 'district' => $this->faker->citySuffix,
                 'city' => $this->faker->city,
-                ''
+                'created_at' => $this->createdAt,
+                'updated_at' => $this->updatedAt,
 
             ]);
 

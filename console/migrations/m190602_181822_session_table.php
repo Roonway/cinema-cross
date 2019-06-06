@@ -14,12 +14,11 @@ class m190602_181822_session_table extends Migration
     {
         $this->createTable('{{%session}}', [
             'id' => $this->primaryKey(),
-            'hour' => $this->time(4),
+            'hour' => $this->time(),
             'date' => $this->date(),
             'movie_id' => $this->integer(),
             'room_id' => $this->integer(),
             'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
         ]);
 
 

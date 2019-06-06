@@ -14,16 +14,20 @@ class Phone_EmployeeSeeder extends TableSeeder
         $this->disableForeginKeyChecks();
         $this->truncateTable('{{%phone_employee}}');
         $this->enableForeginKeyChecks();
-        loop( function ($phone_employee) {
 
-            $this->generate();
+        loop( function ($employee) {
 
-            $this->insert('{{%phone_employee}}', [
+            loop( function ($phone) use ($employee) {
 
-                'phone' => $this->faker->phoneNumber,
+                if ($this->faker->boolean){
+                    $this->generate();
 
-
-            ]);
-        }, DatabaseSeeder::CLIENT_COUNT);
+                    $this->insert('{{%phone_client}}', [
+                        'client_id' => $employee,
+                        'phone' => $this->faker->cellphone(false),
+                    ]);
+                }
+            }, DatabaseSeeder::PHONE_COUNT);
+        }, DatabaseSeeder::EMPLOYEE_COUNT);
     }
 }

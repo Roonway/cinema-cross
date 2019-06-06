@@ -18,7 +18,6 @@ class m190602_181926_ticket_table extends Migration
             'client_id' => $this->integer(),
             'session_id' => $this->integer(),
             'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
 
         ]);
         $this->createIndex('idx-ticket-client_id', '{{%ticket}}', 'client_id');

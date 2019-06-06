@@ -17,16 +17,19 @@ class Phone_ClientSeeder extends TableSeeder
         $this->truncateTable('{{%phone_client}}');
         $this->enableForeginKeyChecks();
 
-        loop( function ($phone_client) {
+        loop( function ($client) {
 
-            $this->generate();
+            loop( function ($phone) use ($client) {
 
-            $this->insert('{{%phone_client}}', [
-                'phone' => $this->faker->phoneNumber,
+                if ($this->faker->boolean){
+                    $this->generate();
 
-
-            ]);
-
+                    $this->insert('{{%phone_client}}', [
+                        'client_id' => $client,
+                        'phone' => $this->faker->cellphone(false),
+                    ]);
+                }
+            }, DatabaseSeeder::PHONE_COUNT);
         }, DatabaseSeeder::CLIENT_COUNT);
     }
 }

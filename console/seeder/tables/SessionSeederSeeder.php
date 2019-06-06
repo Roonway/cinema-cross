@@ -14,14 +14,26 @@ class SessionSeeder extends TableSeeder
         $this->disableForeginKeyChecks();
         $this->truncateTable('{{%session}}');
         $this->enableForeginKeyChecks();
-        loop( function ($session) {
 
-            $this->generate();
+        loop (function ($movie) {
 
-            $this->insert('{{%session}}', [
-                'hour' => $this->faker->time(),
-                'date' => $this->faker->date(),
-            ]);
-        }, DatabaseSeeder::CLIENT_COUNT);
+            loop (function ($room) use ($movie) {
+
+
+                    $this->generate();
+
+                    $this->insert('{{%session}}', [
+                        'hour' => $this->faker->time(),
+                        'date' => $this->faker->date('Y-m-d', 'now'),
+                        'movie_id' => $movie,
+                        'room_id' => $room,
+                        'created_at' => $this->createdAt,
+                    ]);
+
+            }, DatabaseSeeder::ROOM_COUNT);
+
+        }, DatabaseSeeder::MOVIE_COUNT);
+
+
     }
 }

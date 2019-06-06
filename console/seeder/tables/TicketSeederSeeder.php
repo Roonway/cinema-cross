@@ -14,14 +14,24 @@ class TicketSeeder extends TableSeeder
         $this->disableForeginKeyChecks();
         $this->truncateTable('{{%ticket}}');
         $this->enableForeginKeyChecks();
-        loop( function ($ticket) {
 
-            $this->generate();
+        loop( function ($session) {
 
-            $this->insert('{{%ticket}}', [
+            loop( function ($ticket) use ($session){
 
-                'half-fare' => $this->faker->boolean,
-            ]);
-        }, DatabaseSeeder::CLIENT_COUNT);
+                $this->generate();
+
+                $this->insert('{{%ticket}}', [
+
+                    'half-fare' => $this->faker->boolean,
+                    'client_id' => $this->faker->numberBetween(1,DatabaseSeeder::CLIENT_COUNT),
+                    'session_id' => $session,
+                    'created_at' => $this->createdAt,
+                ]);
+            }, DatabaseSeeder::TICKET_COUNT);
+
+        }, DatabaseSeeder::MOVIE_COUNT * DatabaseSeeder::ROOM_COUNT);
+
+
     }
 }
