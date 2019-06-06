@@ -17,7 +17,7 @@ class SeederController extends Controller
     public function actionSeed($name = null)
     {
         if ($name) {
-            $seederClass = "console\\seeder\\tables\\{$name}TableSeeder";
+            $seederClass = "console\\seeder\\tables\\{$name}Seeder";
             if (class_exists($seederClass)) {
                 (new $seederClass)->run();
             } else {

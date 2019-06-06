@@ -1,39 +1,40 @@
 <?php
-
 namespace console\seeder\tables;
-
 use Yii;
 use console\seeder\TableSeeder;
 use console\seeder\DatabaseSeeder;
 use console\seeder\helpers\CreatedAtUpdatedAt;
 
-class ClientSeeder extends TableSeeder
+
+class EmployeeSeeder extends TableSeeder
 {
     use CreatedAtUpdatedAt;
-
     function run()
     {
         $this->disableForeginKeyChecks();
-        $this->truncateTable('{{%client}}');
+        $this->truncateTable('{{%employee}}');
         $this->enableForeginKeyChecks();
 
-        loop( function ($client) {
+        loop( function ($employee) {
 
             $this->generate();
 
-            $this->insert('{{%client}}', [
+            $this->insert('{{%employee}}', [
+
                 'name' => $this->faker->name($this->faker->boolean ? 'male' : 'female'),
-                'email' => $this->faker->email,
-                'birthday' => $this->faker->date('Y-m-d', '-5 years'),
+                'birthday' => $this->faker->date('Y-m-d', '-16 years'),
+                'email' => "funcionario$employee@gmail.com",
+                'cpf' => $this->faker->cpf(false),
                 'street' => $this->faker->streetName,
                 'number' => $this->faker->buildingNumber,
                 'district' => $this->faker->citySuffix,
                 'city' => $this->faker->city,
+                'room_id' => $this->faker->numberBetween(1, DatabaseSeeder::ROOM_COUNT),
+                'manager' => $this->faker->boolean ? ($this->faker->boolean) : false,
                 'created_at' => $this->createdAt,
                 'updated_at' => $this->updatedAt,
 
             ]);
-
-        }, DatabaseSeeder::CLIENT_COUNT);
+        }, DatabaseSeeder::EMPLOYEE_COUNT);
     }
 }

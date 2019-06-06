@@ -15,8 +15,8 @@ class m190602_181820_movie_table extends Migration
         $this->createTable('{{%movie}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255)->notNull(),
-            'year' => $this->integer(),
-            'duration' => $this->time(4),
+            'year' => $this->integer()->notNull(),
+            'duration' => $this->integer(),
             'indicative_classify' => $this->integer(),
             'director_id' => $this->integer(),
             'genre_id' => $this->integer(),

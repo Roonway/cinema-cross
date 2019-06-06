@@ -1,29 +1,31 @@
 <?php
 namespace console\seeder\tables;
+
 use Yii;
 use console\seeder\TableSeeder;
 use console\seeder\DatabaseSeeder;
 use console\seeder\helpers\CreatedAtUpdatedAt;
 
-
-class EmployeeSeeder extends TableSeeder
+class DirectorSeeder extends TableSeeder
 {
     use CreatedAtUpdatedAt;
+
     function run()
     {
         $this->disableForeginKeyChecks();
-        $this->truncateTable('{{%employee}}');
+        $this->truncateTable('{{%director}}');
         $this->enableForeginKeyChecks();
-        loop( function ($employee) {
+
+        loop( function ($director) {
 
             $this->generate();
 
-            $this->insert('{{%employee}}', [
+            $this->insert('{{%director}}', [
 
                 'name' => $this->faker->name($this->faker->boolean ? 'male' : 'female'),
-                'email' => $this->faker->email,
-                'birthday' => $this->faker->dateTimeThisCentury(),
+                'created_at' => $this->createdAt,
+                'updated_at' => $this->updatedAt,
             ]);
-        }, DatabaseSeeder::CLIENT_COUNT);
+        }, DatabaseSeeder::DIRECTOR_COUNT);
     }
 }

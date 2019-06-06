@@ -119,18 +119,15 @@ a.desc:after {
     outline: none;
 }
 
-.login-page,
-.register-page{
+.login-page {
     background: #f3f3f3;
 }
 
-.login-logo h1,
-.register-logo h1{
+.login-logo h1 {
     color: #00bddd;
     font-weight: bold;
 }
 
-.login-logo img,
-.register-logo img{
+.login-logo img {
     height: 150px;
 }

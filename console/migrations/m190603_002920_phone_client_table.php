@@ -16,8 +16,6 @@ class m190603_002920_phone_client_table extends Migration
         $this->createTable('{{phone_client}}', [
             'client_id' => $this->integer(),
             'phone' => $this->string(255)->unique()->notNull(),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
 
         ]);
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace console\seeder\tables;
 
 use Yii;
@@ -7,26 +6,22 @@ use console\seeder\TableSeeder;
 use console\seeder\DatabaseSeeder;
 use console\seeder\helpers\CreatedAtUpdatedAt;
 
-class Phone_ClientSeeder extends TableSeeder
+class GenreSeeder extends TableSeeder
 {
     use CreatedAtUpdatedAt;
-
     function run()
     {
         $this->disableForeginKeyChecks();
-        $this->truncateTable('{{%phone_client}}');
+        $this->truncateTable('{{%genre}}');
         $this->enableForeginKeyChecks();
 
-        loop( function ($phone_client) {
+        loop( function ($genre) {
 
             $this->generate();
 
-            $this->insert('{{%phone_client}}', [
-                'phone' => $this->faker->phoneNumber,
-
-
+            $this->insert('{{%genre}}', [
+                'category' => "Categoria $genre"
             ]);
-
-        }, DatabaseSeeder::CLIENT_COUNT);
+        }, DatabaseSeeder::GENRE_COUNT);
     }
 }
