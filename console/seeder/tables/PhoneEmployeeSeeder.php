@@ -6,7 +6,7 @@ use console\seeder\DatabaseSeeder;
 use console\seeder\helpers\CreatedAtUpdatedAt;
 
 
-class Phone_EmployeeSeeder extends TableSeeder
+class PhoneEmployeeSeeder extends TableSeeder
 {
     use CreatedAtUpdatedAt;
     function run()
@@ -22,8 +22,8 @@ class Phone_EmployeeSeeder extends TableSeeder
                 if ($this->faker->boolean){
                     $this->generate();
 
-                    $this->insert('{{%phone_client}}', [
-                        'client_id' => $employee,
+                    $this->insert('{{%phone_employee}}', [
+                        'employee_id' => $employee,
                         'phone' => $this->faker->cellphone(false),
                     ]);
                 }

@@ -3,6 +3,7 @@
 namespace console\seeder\tables;
 
 use Yii;
+use common\models\Employee;
 use console\seeder\TableSeeder;
 use console\seeder\DatabaseSeeder;
 use console\seeder\helpers\CreatedAtUpdatedAt;
@@ -32,20 +33,26 @@ class UserSeeder extends TableSeeder{
         }
 
 
-        loop(function ($user) {
 
-            $this->generate();
+            $employees = Employee::find()->whereManager()->all();
 
-            $this->insert('{{%user}}', [
-                'email' => "@gmail.com",
-                'username' => "Gerente $user",
-                'auth_key' => Yii::$app->security->generateRandomString(),
-                'password_hash' => Yii::$app->security->generatePasswordHash('user'),
-                'created_at' => $this->createdAt,
-                'updated_at' => $this->updatedAt,
-            ]);
+            foreach ($employees as $employee){
 
-        }, DatabaseSeeder::EMPLOYEE_COUNT);
+                $this->generate();
+
+                $this->insert('{{%user}}', [
+                    'email' => $employee->email,
+                    'username' => "Gerente $employee->id",
+                    'auth_key' => Yii::$app->security->generateRandomString(),
+                    'password_hash' => Yii::$app->security->generatePasswordHash($employee->cpf),
+                    'employee_id' => $employee->id,
+                    'created_at' => $this->createdAt,
+                    'updated_at' => $this->updatedAt,
+                ]);
+            }
+
+
+
     }
 }
 

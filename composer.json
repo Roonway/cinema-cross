@@ -30,6 +30,11 @@
         "codeception/verify": "~1.0.0",
         "symfony/browser-kit": ">=2.7 <=4.2.4"
     },
+    "autoload": {
+        "files": [
+            "functions.php"
+        ]
+    },
     "config": {
         "process-timeout": 1800,
         "fxp-asset": {

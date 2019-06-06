@@ -19,6 +19,7 @@ class m190602_172737_employee_table extends Migration
             'cpf' => $this->string(11)->notNull()->unique(),
             'birthday' => $this->date(),
             'street' => $this->string(255)->notNull(),
+            'number' => $this->integer(),
             'district' => $this->string(50)->notNull(),
             'city' => $this->string(50)->notNull(),
             'room_id' => $this->integer(),

@@ -14,6 +14,7 @@ class EmployeeSeeder extends TableSeeder
         $this->disableForeginKeyChecks();
         $this->truncateTable('{{%employee}}');
         $this->enableForeginKeyChecks();
+
         loop( function ($employee) {
 
             $this->generate();
@@ -34,6 +35,6 @@ class EmployeeSeeder extends TableSeeder
                 'updated_at' => $this->updatedAt,
 
             ]);
-        }, DatabaseSeeder::CLIENT_COUNT);
+        }, DatabaseSeeder::EMPLOYEE_COUNT);
     }
 }

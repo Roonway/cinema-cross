@@ -7,7 +7,7 @@ use console\seeder\TableSeeder;
 use console\seeder\DatabaseSeeder;
 use console\seeder\helpers\CreatedAtUpdatedAt;
 
-class Phone_ClientSeeder extends TableSeeder
+class PhoneClientSeeder extends TableSeeder
 {
     use CreatedAtUpdatedAt;
 
