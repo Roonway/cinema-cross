@@ -14,7 +14,6 @@ class m190602_002355_client_table extends Migration
     {
         $this->createTable('{{%client}}', [
             'id' => $this->primaryKey(),
-            'cpf' => $this->string(11)->notNull()->unique(),
             'name' => $this->string(255),
             'email' => $this->string(255)->unique(),
             'birthday' => $this->date(),
