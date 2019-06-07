@@ -35,6 +35,7 @@ class DatabaseSeeder extends TableSeeder
     function run(){
         (new RoomSeeder())->run();
         (new EmployeeSeeder())->run();
+        (new UserSeeder())->run();
         (new PhoneEmployeeSeeder())->run();
         (new ClientSeeder())->run();
         (new PhoneClientSeeder())->run();

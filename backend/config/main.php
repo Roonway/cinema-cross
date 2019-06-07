@@ -37,14 +37,12 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
+            'enableStrictParsing' => true,
+            'rules' => require('routes.php'),
         ],
-        */
     ],
     'params' => $params,
 ];
