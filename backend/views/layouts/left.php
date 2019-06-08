@@ -66,6 +66,7 @@ use dmstr\widgets\Menu;
                         'icon' => 'user',
                         'url' => ['client/index'],
                     ],
+
                     [
                         'label' => 'Empregado',
                         'icon' => 'wrench',
@@ -77,9 +78,14 @@ use dmstr\widgets\Menu;
                         'url' => ['director/index'],
                     ],
                     [
-                        'label' => 'Debug',
-                        'icon' => 'dashboard',
-                        'url' => ['/debug'],
+                        'label' => 'Funcionário',
+                        'icon' => 'user',
+                        'url' => ['employee/index'],
+                    ],
+
+                    [
+                        'label' => 'Menu Yii2',
+                        'options' => ['class' => 'header'],
                         'visible' => YII_ENV_DEV,
                     ],
                     [
@@ -88,13 +94,7 @@ use dmstr\widgets\Menu;
                         'url' => ['/gii'],
                         'visible' => YII_ENV_DEV,
                     ],
-                    [
-                        'label' => 'Menu Yii2',
-                        'options' => ['class' => 'header'],
-                        'visible' => YII_ENV_DEV,
-                    ],
-
-                ],
+                ]
             ]
         ) ?>
 
