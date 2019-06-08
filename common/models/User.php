@@ -299,8 +299,15 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return bool
      */
-    public function getIsSuperAdmin(){
+    public function getIsSuperAdmin()
+    {
         return ($this->employee_id == null);
     }
 
+    /*
+    public function getIsAllowedToDelete()
+    {
+        return $this->id != Yii::$app->user->id;
+    }
+    */
 }

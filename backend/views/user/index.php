@@ -1,5 +1,6 @@
 <?php
 
+use backend\models\UserSearch;
 use kartik\grid\ActionColumn;
 use kartik\grid\GridView;
 use yii\helpers\Html;
@@ -7,6 +8,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+
+/**
+ * @var $user \common\models\User
+ */
+$user = Yii::$app->user->identity;
 
 $this->title = 'Usuários';
 $this->params['breadcrumbs'][] = $this->title;
@@ -37,7 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'visibleButtons' => [
                         'view' => false,
                         'update' => true,
-                        'delete' => true,
+                        'delete' => function (UserSearch $model){
+                            return $model->id != Yii::$app->user->id;
+                        }
                     ],
                     'buttonOptions' => [
                         'class' => 'btn btn-sm btn-default'
