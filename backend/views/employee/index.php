@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\EmployeeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Employees';
+$this->title = 'Empregados';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="employee-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Employee', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Empregado', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -23,19 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
+
                 'name',
                 'email:email',
-                'cpf',
-                'birthday',
-                // 'street',
-                // 'number',
-                // 'district',
-                // 'city',
-                // 'room_id',
-                // 'manager',
-                // 'created_at',
-                // 'updated_at',
+                'city',
+                'created_at:date',
+
 
                 ['class' => 'yii\grid\ActionColumn'],
             ],

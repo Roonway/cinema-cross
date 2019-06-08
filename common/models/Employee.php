@@ -59,17 +59,17 @@ class Employee extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Nome',
             'email' => 'Email',
-            'cpf' => 'Cpf',
-            'birthday' => 'Birthday',
-            'street' => 'Street',
-            'district' => 'District',
-            'city' => 'City',
-            'room_id' => 'Room ID',
-            'manager' => 'Manager',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'cpf' => 'CPF',
+            'birthday' => 'Data de Nascimento',
+            'street' => 'Logradouro',
+            'district' => 'Bairro',
+            'city' => 'Cidade',
+            'room_id' => 'ID da Sala',
+            'manager' => 'Gerente',
+            'created_at' => 'Data de Criação',
+            'updated_at' => 'Data de Alteração',
         ];
     }
 

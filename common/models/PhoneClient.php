@@ -43,8 +43,8 @@ class PhoneClient extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'client_id' => 'Client ID',
-            'phone' => 'Phone',
+            'client_id' => 'ID de Cliente',
+            'phone' => 'Telefone',
         ];
     }
 

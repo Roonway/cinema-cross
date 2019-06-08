@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\DirectorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Directors';
+$this->title = 'Diretores';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="director-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Director', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Diretor', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -23,10 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
+
                 'name',
-                'created_at',
-                'updated_at',
+                'created_at:date',
+
 
                 ['class' => 'yii\grid\ActionColumn'],
             ],

@@ -44,9 +44,9 @@ class Director extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'name' => 'Nome',
+            'created_at' => 'Data de Criação',
+            'updated_at' => 'Data de Alteração',
         ];
     }
 

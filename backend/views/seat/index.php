@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\SeatSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Seats';
+$this->title = 'Assentos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="seat-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Seat', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Assentos', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -25,8 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 'id',
                 'room_id',
-                'created_at',
-                'updated_at',
+                'created_at:date',
+
 
                 ['class' => 'yii\grid\ActionColumn'],
             ],

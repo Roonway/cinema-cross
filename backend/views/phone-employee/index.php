@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\PhoneEmployeeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Phone Employees';
+$this->title = 'Telefone dos Funcionários';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="phone-employee-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Phone Employee', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Telefone dos Funcionários', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

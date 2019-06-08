@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\MovieSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Movies';
+$this->title = 'Filmes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="movie-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Movie', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Filme', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -23,15 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
+
                 'title',
                 'year',
                 'duration',
                 'indicative_classify',
-                // 'director_id',
-                // 'genre_id',
-                // 'created_at',
-                // 'updated_at',
+                'created_at:date',
+
 
                 ['class' => 'yii\grid\ActionColumn'],
             ],

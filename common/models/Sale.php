@@ -50,12 +50,12 @@ class Sale extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'product_id' => 'Product ID',
-            'client_id' => 'Client ID',
-            'quantity' => 'Quantity',
-            'total_price' => 'Total Price',
-            'sale_date' => 'Sale Date',
-            'created_at' => 'Created At',
+            'product_id' => 'ID de Produto',
+            'client_id' => 'ID de Cliente',
+            'quantity' => 'Quantidade',
+            'total_price' => 'Preço Total',
+            'sale_date' => 'Data da Venda',
+            'created_at' => 'Data de Criação',
         ];
     }
 

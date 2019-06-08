@@ -46,10 +46,10 @@ class Ticket extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'half-fare' => 'Half Fare',
-            'client_id' => 'Client ID',
-            'session_id' => 'Session ID',
-            'created_at' => 'Created At',
+            'half-fare' => 'Meia-entrada',
+            'client_id' => 'ID do Cliente',
+            'session_id' => 'ID da Sessão',
+            'created_at' => 'Data de Criação',
         ];
     }
 

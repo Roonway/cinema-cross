@@ -44,9 +44,9 @@ class Room extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'seat_quant' => 'Seat Quant',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'seat_quant' => 'Quant Assentos',
+            'created_at' => 'Data de Criação',
+            'updated_at' => 'Data de Alteração',
         ];
     }
 

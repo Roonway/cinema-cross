@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
 
     </div>
     <div class="box-footer">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>

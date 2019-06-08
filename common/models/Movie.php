@@ -52,14 +52,14 @@ class Movie extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'year' => 'Year',
-            'duration' => 'Duration',
-            'indicative_classify' => 'Indicative Classify',
-            'director_id' => 'Director ID',
-            'genre_id' => 'Genre ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title' => 'Título',
+            'year' => 'Ano',
+            'duration' => 'Duração',
+            'indicative_classify' => 'Classificação Indicativa',
+            'director_id' => 'ID do Diretor',
+            'genre_id' => 'ID do Gênero',
+            'created_at' => 'Data de Criação',
+            'updated_at' => 'Data de Alteração',
         ];
     }
 

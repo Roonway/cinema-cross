@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\RoomSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Rooms';
+$this->title = 'Salas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="room-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Room', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Sala', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -23,10 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
+
                 'seat_quant',
-                'created_at',
-                'updated_at',
+                'created_at:date',
+
 
                 ['class' => 'yii\grid\ActionColumn'],
             ],

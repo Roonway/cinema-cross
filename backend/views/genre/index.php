@@ -7,12 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\GenreSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Genres';
+$this->title = 'Gêneros';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="genre-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Genre', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Gênero', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <div class="box-body table-responsive no-padding">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
+
                 'category',
 
                 ['class' => 'yii\grid\ActionColumn'],

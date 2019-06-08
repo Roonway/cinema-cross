@@ -43,8 +43,8 @@ class PhoneEmployee extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'employee_id' => 'Employee ID',
-            'phone' => 'Phone',
+            'employee_id' => 'ID de Empregado',
+            'phone' => 'Telefone',
         ];
     }
 

@@ -49,11 +49,11 @@ class Session extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'hour' => 'Hour',
-            'date' => 'Date',
-            'movie_id' => 'Movie ID',
-            'room_id' => 'Room ID',
-            'created_at' => 'Created At',
+            'hour' => 'Hora',
+            'date' => 'Data',
+            'movie_id' => 'ID do Filme',
+            'room_id' => 'ID da Sala',
+            'created_at' => 'Data de Criação',
         ];
     }
 
