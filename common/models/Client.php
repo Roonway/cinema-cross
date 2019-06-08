@@ -55,15 +55,15 @@ class Client extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'email' => 'Email',
-            'birthday' => 'Birthday',
-            'street' => 'Street',
-            'number' => 'Number',
-            'district' => 'District',
-            'city' => 'City',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'name' => 'Nome',
+            'email' => 'E-mail',
+            'birthday' => 'Data de Nascimento',
+            'street' => 'Logradouro',
+            'number' => 'Nº.',
+            'district' => 'Bairro',
+            'city' => 'Cidade',
+            'created_at' => 'Data de Criação',
+            'updated_at' => 'Data de Alteração',
         ];
     }
 

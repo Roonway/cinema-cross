@@ -4,9 +4,7 @@ use dmstr\widgets\Menu;
 
 ?>
 <aside class="main-sidebar">
-
     <section class="sidebar">
-
         <?= Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
@@ -22,20 +20,67 @@ use dmstr\widgets\Menu;
                         'url' => ['user/index'],
                     ],
                     [
-                        'label' => 'Produto',
+                        'label' => 'Assentos',
+                        'icon' => 'toggle-down',
+                        'url' => ['seat/index'],
+                    ],
+                    [
+                        'label' => 'Salas',
+                        'icon' => 'institution',
+                        'url' => ['room/index'],
+                    ],
+                    [
+                        'label' => 'Ingressos',
+                        'icon' => 'ticket',
+                        'url' => ['ticket/index'],
+                    ],
+                    [
+                        'label' => 'Sessão',
+                        'icon' => 'file-movie-o',
+                        'url' => ['session/index'],
+                    ],
+                    [
+                        'label' => 'Gêneros',
+                        'icon' => 'rocket',
+                        'url' => ['genre/index'],
+                    ],
+                    [
+                        'label' => 'Filmes',
+                        'icon' => 'video-camera',
+                        'url' => ['movie/index'],
+                    ],
+                    [
+                        'label' => 'Conveniência',
+                        'icon' => 'money',
+                        'url' => ['sale/index'],
+                    ],
+                    [
+                        'label' => 'Produtos',
                         'icon' => 'cube',
                         'url' => ['product/index'],
+                    ],
+                    [
+                        'label' => 'Cliente',
+                        'icon' => 'user',
+                        'url' => ['client/index'],
+                    ],
+
+                    [
+                        'label' => 'Empregado',
+                        'icon' => 'wrench',
+                        'url' => ['employee/index'],
+                    ],
+                    [
+                        'label' => 'Diretor',
+                        'icon' => 'street-view',
+                        'url' => ['director/index'],
                     ],
                     [
                         'label' => 'Funcionário',
                         'icon' => 'user',
                         'url' => ['employee/index'],
                     ],
-                    [
-                        'label' => 'Filmes',
-                        'icon' => 'film',
-                        'url' => ['movie/index']
-                    ],
+
                     [
                         'label' => 'Menu Yii2',
                         'options' => ['class' => 'header'],
@@ -54,9 +99,7 @@ use dmstr\widgets\Menu;
                         'visible' => YII_ENV_DEV,
                     ],
                 ],
-            ],
+            ]
         ) ?>
-
     </section>
-
 </aside>

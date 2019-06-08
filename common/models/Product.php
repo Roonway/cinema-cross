@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "product".
@@ -24,7 +25,14 @@ class Product extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'product';
+        return '{{%product}}';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class
+        ];
     }
 
     /**
@@ -35,8 +43,6 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['description'], 'string'],
             [['unit_price'], 'number'],
-            [['created_at', 'updated_at'], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['name'], 'unique'],
         ];
@@ -48,10 +54,10 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'unit_price' => 'Unit Price',
+            'id' => 'Cod.',
+            'name' => 'Nome',
+            'description' => 'Descrição',
+            'unit_price' => 'Preço da Unidade',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
@@ -62,7 +68,7 @@ class Product extends \yii\db\ActiveRecord
      */
     public function getSales()
     {
-        return $this->hasMany(Sale::className(), ['product_id' => 'id']);
+        return $this->hasMany(Sale::class, ['product_id' => 'id']);
     }
 
     /**
@@ -70,7 +76,7 @@ class Product extends \yii\db\ActiveRecord
      */
     public function getClients()
     {
-        return $this->hasMany(Client::className(), ['id' => 'client_id'])->viaTable('sale', ['product_id' => 'id']);
+        return $this->hasMany(Client::class, ['id' => 'client_id'])->viaTable('sale', ['product_id' => 'id']);
     }
 
     /**

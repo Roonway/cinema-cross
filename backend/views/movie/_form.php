@@ -1,5 +1,8 @@
 <?php
 
+use common\models\Director;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -14,13 +17,18 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'year')->textInput() ?>
+        <?= $form->field($model, 'year')->textInput(['type' => 'number', 'min' => 1900]) ?>
 
         <?= $form->field($model, 'duration')->textInput() ?>
 
         <?= $form->field($model, 'indicative_classify')->textInput() ?>
-
-        <?= $form->field($model, 'director_id')->textInput() ?>
+        <?= $form->field($model, 'director_id')->widget(Select2::class, [
+            'data' => ArrayHelper::map(Director::find()->all(), 'id', 'name'),
+            'theme' => Select2::THEME_DEFAULT,
+            'pluginOptions' => [
+                'placeholder' => 'Escolha um Diretor',
+            ]
+        ]) ?>
 
         <?= $form->field($model, 'genre_id')->textInput() ?>
 

@@ -7,32 +7,27 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\ClientSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Clients';
+$this->title = 'Clientes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="client-index box box-primary">
     <div class="box-header with-border">
-        <?= Html::a('Create Client', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::a('Cadastrar Cliente', ['create'], ['class' => 'btn btn-success btn-flat']) ?>
     </div>
-    <div class="box-body table-responsive no-padding">
+    <div class="box-body table-responsive">
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
             'layout' => "{items}\n{summary}\n{pager}",
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
 
-                'id',
                 'name',
                 'email:email',
-                'birthday',
                 'street',
-                // 'number',
-                // 'district',
-                // 'city',
-                // 'created_at',
-                // 'updated_at',
+                'number',
+                'district',
+                'city',
+                'created_at:date',
 
                 ['class' => 'yii\grid\ActionColumn'],
             ],

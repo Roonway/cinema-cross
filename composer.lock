@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c616a8b41e5ce36c2fcd6a7728a9f145",
+    "content-hash": "bb2f15dd368381ca580ebf452526ed6b",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -580,6 +580,107 @@
             "time": "2019-05-01T11:47:39+00:00"
         },
         {
+            "name": "kartik-v/php-date-formatter",
+            "version": "v1.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/php-date-formatter.git",
+                "reference": "d842e1c4e6a8d6108017b726321c305bb5ae4fb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/php-date-formatter/zipball/d842e1c4e6a8d6108017b726321c305bb5ae4fb5",
+                "reference": "d842e1c4e6a8d6108017b726321c305bb5ae4fb5",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\plugins\\dateformatter\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A Javascript datetime formatting and manipulation library using PHP date-time formats.",
+            "homepage": "https://github.com/kartik-v/php-date-formatter",
+            "keywords": [
+                "date",
+                "datetime",
+                "formatter",
+                "javascript",
+                "php",
+                "php-date-formatter.js",
+                "time"
+            ],
+            "time": "2018-07-13T06:56:46+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-datecontrol",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-datecontrol.git",
+                "reference": "bf6a5fcd5e853e33cdb67c860b6bf53d943b3962"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-datecontrol/zipball/bf6a5fcd5e853e33cdb67c860b6bf53d943b3962",
+                "reference": "bf6a5fcd5e853e33cdb67c860b6bf53d943b3962",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/php-date-formatter": ">1.3",
+                "kartik-v/yii2-krajee-base": ">=1.9"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\datecontrol\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Date control module allowing separation of formats for View and Model for Yii Framework 2.0",
+            "homepage": "https://github.com/kartik-v/yii2-datecontrol",
+            "keywords": [
+                "control",
+                "date",
+                "extension",
+                "format",
+                "yii",
+                "yii2"
+            ],
+            "time": "2019-05-25T07:12:33+00:00"
+        },
+        {
             "name": "kartik-v/yii2-dialog",
             "version": "v1.0.5",
             "source": {
@@ -733,6 +834,112 @@
                 "yii2"
             ],
             "time": "2019-03-13T17:14:54+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-number",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-number.git",
+                "reference": "5c662855653ad9f49a214effaee77c81405064bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-number/zipball/5c662855653ad9f49a214effaee77c81405064bf",
+                "reference": "5c662855653ad9f49a214effaee77c81405064bf",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\number\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Number control and format mask input for Yii2 Framework.",
+            "homepage": "https://github.com/kartik-v/yii2-number",
+            "keywords": [
+                "currency",
+                "extension",
+                "format",
+                "mask",
+                "number",
+                "number control",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-05-25T07:26:43+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-select2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-select2.git",
+                "reference": "3fa5d9d12edde54ad5f4a0547f66dd5cef1125dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/3fa5d9d12edde54ad5f4a0547f66dd5cef1125dc",
+                "reference": "3fa5d9d12edde54ad5f4a0547f66dd5cef1125dc",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=1.9"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\select2\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Select2 jQuery plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-select2",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-05-25T07:30:32+00:00"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
@@ -4141,12 +4348,15 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "kartik-v/yii2-grid": 20
+        "kartik-v/yii2-grid": 20,
+        "kartik-v/yii2-datecontrol": 20,
+        "kartik-v/yii2-number": 20,
+        "kartik-v/yii2-widget-select2": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=7.2.0"
     },
     "platform-dev": []
 }
