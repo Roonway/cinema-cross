@@ -22,6 +22,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'duration')->textInput() ?>
 
         <?= $form->field($model, 'indicative_classify')->textInput() ?>
+
         <?= $form->field($model, 'director_id')->widget(Select2::class, [
             'data' => ArrayHelper::map(Director::find()->all(), 'id', 'name'),
             'theme' => Select2::THEME_DEFAULT,

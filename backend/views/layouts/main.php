@@ -10,7 +10,7 @@ use yii\helpers\Html;
 
 AppAsset::register($this);
 
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+$directoryAsset = Yii::$app->backendUrlManager->baseUrl . '/backend/web/images/';
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>

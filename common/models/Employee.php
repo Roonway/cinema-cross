@@ -48,6 +48,7 @@ class Employee extends \yii\db\ActiveRecord
             [['district', 'city'], 'string', 'max' => 50],
             [['cpf'], 'unique'],
             [['email'], 'unique'],
+            ['email', 'email', 'checkDNS' => true],
             [['room_id'], 'exist', 'skipOnError' => true, 'targetClass' => Room::className(), 'targetAttribute' => ['room_id' => 'id']],
         ];
     }

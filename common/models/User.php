@@ -18,16 +18,22 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $auth_key
  * @property integer $status
+ * @property integer employee_id
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ *
+ * @property Employee $employee
+ * @property array $statusValue
+ * @property string $statusText
+ * @property boolean $isSuperAdmin
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    const STATUS_DELETED = 0;
-    const STATUS_INACTIVE = 9;
+    const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 10;
 
+    public $new_password;
 
     /**
      * {@inheritdoc}
@@ -43,7 +49,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehavior::class,
         ];
     }
 
@@ -53,10 +59,44 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_INACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+            [['username', 'auth_key', 'password_hash'], 'required'],
+            [['employee_id', 'status'], 'integer'],
+            [['username', 'email', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
+            [['auth_key'], 'string', 'max' => 32],
+            [['username'], 'unique'],
+            [['email'], 'unique'],
+            ['email', 'email', 'checkDNS' => true],
+            [['password_reset_token'], 'unique'],
+            [['employee_id'], 'unique'],
+            [['employee_id'], 'exist', 'skipOnError' => true, 'targetClass' => Employee::class, 'targetAttribute' => ['employee_id' => 'id']],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE]],
+            ['new_password', 'required', 'when' => function (User $model){
+                return $model->isNewRecord;
+            }, 'enableClientValidation' => false]
         ];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => 'Nome',
+            'email' => 'E-mail',
+            'auth_key' => 'Auth Key',
+            'password_hash' => 'Password Hash',
+            'password_reset_token' => 'Password Reset Token',
+            'employee_id' => 'Empregado',
+            'status', 'statusText' => 'Status',
+            'created_at' => 'Data de Criação',
+            'updated_at' => 'Data de Atualização',
+
+        ];
+    }
+
 
     /**
      * {@inheritdoc}
@@ -215,4 +255,52 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    public function getEmployee()
+    {
+        return $this->hasOne(Employee::class, ['id' => 'employee_id']);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return UserQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new UserQuery(get_called_class());
+    }
+
+    /**
+     * @param null $value
+     * @return array|mixed
+     */
+    public static function statusValues($value = null){
+
+        $values = [
+            User::STATUS_ACTIVE => 'ATIVADO',
+            User::STATUS_INACTIVE => "INATIVO",
+        ];
+
+        if ($value != null){
+            return $values[$value];
+        }
+
+        return $values;
+    }
+
+    /**
+     * @return array|mixed
+     */
+    public function getStatusText()
+    {
+        return self::statusValues($this->status);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsSuperAdmin(){
+        return ($this->employee_id == null);
+    }
+
 }
