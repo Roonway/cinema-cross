@@ -12,11 +12,15 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive">
 
-        <?= $form->field($model, 'status')->textInput() ?>
+        <?= $form->field($model, 'username')->textInput() ?>
+
+        <?= $form->field($model, 'email')->textInput() ?>
+
+        <?= $form->field($model, 'password')->textInput() ?>
 
     </div>
     <div class="box-footer">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-flat']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success btn-flat']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>

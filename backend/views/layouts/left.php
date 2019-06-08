@@ -54,7 +54,7 @@ use dmstr\widgets\Menu;
                         'visible' => YII_ENV_DEV,
                     ],
                 ],
-            ],
+            ]
         ) ?>
 
     </section>
