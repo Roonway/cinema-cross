@@ -22,6 +22,11 @@ use dmstr\widgets\Menu;
                         'url' => ['user/index'],
                     ],
                     [
+                        'label' => 'Produto',
+                        'icon' => 'cube',
+                        'url' => ['product/index'],
+                    ],
+                    [
                         'label' => 'Menu Yii2',
                         'options' => ['class' => 'header'],
                         'visible' => YII_ENV_DEV,
