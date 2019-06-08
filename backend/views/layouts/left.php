@@ -27,6 +27,16 @@ use dmstr\widgets\Menu;
                         'url' => ['product/index'],
                     ],
                     [
+                        'label' => 'Funcionário',
+                        'icon' => 'user',
+                        'url' => ['employee/index'],
+                    ],
+                    [
+                        'label' => 'Filmes',
+                        'icon' => 'film',
+                        'url' => ['movie/index']
+                    ],
+                    [
                         'label' => 'Menu Yii2',
                         'options' => ['class' => 'header'],
                         'visible' => YII_ENV_DEV,
