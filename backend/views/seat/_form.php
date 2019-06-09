@@ -1,5 +1,8 @@
 <?php
 
+use common\models\Room;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,11 +15,12 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive">
 
-        <?= $form->field($model, 'room_id')->textInput() ?>
-
-        <?= $form->field($model, 'created_at')->textInput() ?>
-
-        <?= $form->field($model, 'updated_at')->textInput() ?>
+        <?= $form->field($model, 'room_id')->widget(Select2::class, [
+            'data' => ArrayHelper::map(Room::find()->all(), 'id', 'id'),
+            'theme' => Select2::THEME_DEFAULT,
+            'pluginOptions' => [
+                'placeholder' => 'Escolha uma Sala',
+            ]]) ?>
 
     </div>
     <div class="box-footer">

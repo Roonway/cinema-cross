@@ -1,7 +1,8 @@
 <?php
 
+use kartik\grid\ActionColumn;
+use kartik\grid\GridView;
 use yii\helpers\Html;
-use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ClientSearch */
@@ -23,13 +24,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 'name',
                 'email:email',
-                'street',
-                'number',
-                'district',
                 'city',
                 'created_at:date',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                ['class' => ActionColumn::class,
+                    'width' => '120px',
+                    'visibleButtons' => [
+                        'view' => true,
+                        'update' => true,
+                        'delete' => true,
+                    ],
+                    'buttonOptions' => [
+                        'class' => 'btn btn-sm btn-default'
+                    ],
+                    'updateOptions' => [
+                        'class' => 'btn btn-sm btn-primary'
+                    ],
+                    'deleteOptions' => [
+                        'class' => 'btn btn-sm btn-danger'
+                    ],
+                    ],
             ],
         ]); ?>
     </div>

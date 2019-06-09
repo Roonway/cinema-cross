@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "phone_client".
@@ -19,7 +20,13 @@ class PhoneClient extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'phone_client';
+        return '{{%phone_client}}';
+    }
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class
+        ];
     }
 
     /**

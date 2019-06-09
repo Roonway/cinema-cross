@@ -1,5 +1,9 @@
 <?php
 
+use common\models\Room;
+use common\models\Employee;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -18,7 +22,7 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'cpf')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'birthday')->textInput() ?>
+        <?= $form->field($model, 'birthday')->textInput(['type' => 'date','min' => 1900]) ?>
 
         <?= $form->field($model, 'street')->textInput(['maxlength' => true]) ?>
 
@@ -26,11 +30,21 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'room_id')->textInput() ?>
+        <?= $form->field($model, 'room_id')->widget(Select2::class, [
+                'data' => ArrayHelper::map(Room::find()->all(), 'id','id'),
+                'theme' => Select2::THEME_DEFAULT,
+                'pluginOptions' => [
+                        'placeholder' => 'Escolha uma sala'
+                ]
+        ]) ?>
 
-        <?= $form->field($model, 'manager')->textInput() ?>
-
-        <?= $form->field($model, 'created_at')->textInput() ?>
+        <?= $form->field($model, 'manager')->widget(Select2::class,[
+                'data' => ArrayHelper::map(Employee::find()->all(),'id','name'),
+                'theme' => Select2::THEME_DEFAULT,
+                'pluginOptions' => [
+                        'placeholder' => 'Escolha um gerente'
+                ]
+        ]) ?>
 
     </div>
     <div class="box-footer">

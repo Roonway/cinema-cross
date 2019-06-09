@@ -1,7 +1,10 @@
 <?php
 
+
+use kartik\grid\ActionColumn;
+use kartik\grid\GridView;
 use yii\helpers\Html;
-use yii\grid\GridView;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SeatSearch */
@@ -18,17 +21,32 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+
             'layout' => "{items}\n{summary}\n{pager}",
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+
 
                 'id',
                 'room_id',
                 'created_at:date',
 
 
-                ['class' => 'yii\grid\ActionColumn'],
+                ['class' => ActionColumn::class,
+                    'width' => '120px',
+                    'visibleButtons' => [
+                        'view' => true,
+                        'update' => true,
+                        'delete' => true,
+                    ],
+                    'buttonOptions' => [
+                        'class' => 'btn btn-sm btn-default'
+                    ],
+                    'updateOptions' => [
+                        'class' => 'btn btn-sm btn-primary'
+                    ],
+                    'deleteOptions' => [
+                        'class' => 'btn btn-sm btn-danger'
+                    ],],
             ],
         ]); ?>
     </div>

@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "movie".
@@ -28,7 +29,13 @@ class Movie extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'movie';
+        return '{{%movie}}';
+    }
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class
+        ];
     }
 
     /**

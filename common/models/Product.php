@@ -58,8 +58,8 @@ class Product extends \yii\db\ActiveRecord
             'name' => 'Nome',
             'description' => 'Descrição',
             'unit_price' => 'Preço da Unidade',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'created_at' => 'Data de Criação',
+            'updated_at' => 'Data de Alteração',
         ];
     }
 

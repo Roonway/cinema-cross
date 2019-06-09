@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "sale".
@@ -24,7 +25,13 @@ class Sale extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'sale';
+        return '{{%sale}}';
+    }
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class
+        ];
     }
 
     /**

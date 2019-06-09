@@ -14,7 +14,6 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'created_at')->textInput() ?>
 
     </div>
     <div class="box-footer">

@@ -1,5 +1,8 @@
 <?php
 
+use common\models\Client;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,7 +15,13 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive">
 
-        <?= $form->field($model, 'client_id')->textInput() ?>
+        <?= $form->field($model, 'client_id')->widget(Select2::class,[
+                'data' => ArrayHelper::map(Client::find()->all(),'id','name'),
+                'theme' => Select2::THEME_DEFAULT,
+                'pluginOptions' => [
+                        'placeholder' => 'Escolha um Cliente'
+                ]
+        ]) ?>
 
         <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 

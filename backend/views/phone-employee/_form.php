@@ -1,5 +1,8 @@
 <?php
 
+use common\models\Employee;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,7 +15,13 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive">
 
-        <?= $form->field($model, 'employee_id')->textInput() ?>
+        <?= $form->field($model, 'employee_id')->widget(Select2::class,[
+            'data' => ArrayHelper::map(Employee::find()->all(),'id','name'),
+            'theme' => Select2::THEME_DEFAULT,
+            'pluginOptions' => [
+                'placeholder' => 'Escolha um Empregado'
+            ]
+            ]) ?>
 
         <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 

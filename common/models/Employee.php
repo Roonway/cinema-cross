@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "employee".
@@ -31,7 +32,13 @@ class Employee extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'employee';
+        return '{{%employee}}';
+    }
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class
+        ];
     }
 
     /**

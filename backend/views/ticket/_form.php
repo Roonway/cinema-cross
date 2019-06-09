@@ -1,5 +1,9 @@
 <?php
 
+use common\models\Client;
+use common\models\Session;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,13 +16,22 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
     <div class="box-body table-responsive">
 
-        <?= $form->field($model, 'half-fare')->textInput() ?>
+        <?= $form->field($model, 'half-fare')->checkbox('Meia-entrada') ?>
 
-        <?= $form->field($model, 'client_id')->textInput() ?>
+        <?= $form->field($model, 'client_id')->widget(Select2::class, [
+            'data' => ArrayHelper::map(Client::find()->all(), 'id', 'name'),
+            'theme' => Select2::THEME_DEFAULT,
+            'pluginOptions' => [
+                'placeholder' => 'Escolha um Cliente',
+            ]]) ?>
 
-        <?= $form->field($model, 'session_id')->textInput() ?>
+        <?= $form->field($model, 'session_id')->widget(Select2::class, [
+            'data' => ArrayHelper::map(Session::find()->all(), 'id', 'hour'),
+            'theme' => Select2::THEME_DEFAULT,
+            'pluginOptions' => [
+                'placeholder' => 'Escolha uma Sessão',
+            ]]) ?>
 
-        <?= $form->field($model, 'created_at')->textInput() ?>
 
     </div>
     <div class="box-footer">

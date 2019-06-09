@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Director;
+use common\models\Genre;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -31,11 +32,16 @@ use yii\widgets\ActiveForm;
             ]
         ]) ?>
 
-        <?= $form->field($model, 'genre_id')->textInput() ?>
+        <?= $form->field($model, 'genre_id')->widget(Select2::class,[
 
-        <?= $form->field($model, 'created_at')->textInput() ?>
+            'data' => ArrayHelper::map(Genre::find()->all(), 'id','category'),
+            'theme' => Select2::THEME_DEFAULT,
+            'pluginOptions' => [
+                'placeholder' => 'Escolha um Gênero',
+            ]
 
-        <?= $form->field($model, 'updated_at')->textInput() ?>
+        ]) ?>
+
 
     </div>
     <div class="box-footer">
