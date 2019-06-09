@@ -15,8 +15,8 @@ use dmstr\widgets\Menu;
                         'url' => ['site/index'],
                     ],
                     [
-                        'label' => 'Usuário',
-                        'icon' => 'users',
+                        'label' => 'Usuários',
+                        'icon' => 'user-circle',
                         'url' => ['user/index'],
                     ],
                     [
@@ -26,7 +26,7 @@ use dmstr\widgets\Menu;
                     ],
                     [
                         'label' => 'Salas',
-                        'icon' => 'institution',
+                        'icon' => 'youtube-play',
                         'url' => ['room/index'],
                     ],
                     [
@@ -36,7 +36,7 @@ use dmstr\widgets\Menu;
                     ],
                     [
                         'label' => 'Sessão',
-                        'icon' => 'file-movie-o',
+                        'icon' => 'video-camera',
                         'url' => ['session/index'],
                     ],
                     [
@@ -46,12 +46,12 @@ use dmstr\widgets\Menu;
                     ],
                     [
                         'label' => 'Filmes',
-                        'icon' => 'video-camera',
+                        'icon' => 'film',
                         'url' => ['movie/index'],
                     ],
                     [
                         'label' => 'Conveniência',
-                        'icon' => 'money',
+                        'icon' => 'shopping-cart',
                         'url' => ['sale/index'],
                     ],
                     [
@@ -64,10 +64,9 @@ use dmstr\widgets\Menu;
                         'icon' => 'user',
                         'url' => ['client/index'],
                     ],
-
                     [
-                        'label' => 'Empregado',
-                        'icon' => 'wrench',
+                        'label' => 'Funcionário',
+                        'icon' => 'black-tie',
                         'url' => ['employee/index'],
                     ],
                     [
@@ -75,12 +74,6 @@ use dmstr\widgets\Menu;
                         'icon' => 'street-view',
                         'url' => ['director/index'],
                     ],
-                    [
-                        'label' => 'Funcionário',
-                        'icon' => 'user',
-                        'url' => ['employee/index'],
-                    ],
-
                     [
                         'label' => 'Menu Yii2',
                         'options' => ['class' => 'header'],

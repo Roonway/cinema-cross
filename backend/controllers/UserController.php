@@ -2,12 +2,12 @@
 
 namespace backend\controllers;
 
-use Yii;
-use common\models\User;
 use backend\models\UserSearch;
+use common\models\User;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -48,6 +48,7 @@ class UserController extends Controller
      * Displays a single User model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionView($id)
     {
@@ -65,13 +66,21 @@ class UserController extends Controller
     {
         $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->generateAuthKey();
+            $model->setPassword($model->new_password);
+
+            if ($model->save()) {
+                Yii::$app->getSession()->addFlash('success', Yii::t('yii', 'Cadastrado com sucesso'));
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->getSession()->addFlash('danger', Yii::t('yii', 'Erro ao Cadastrar'));
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -79,18 +88,28 @@ class UserController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+            if (!empty($model->new_password)) {
+                $model->setPassword($model->new_password);
+            }
+
+            if ($model->save()) {
+                Yii::$app->getSession()->addFlash('success', Yii::t('yii', "Atualizado com Sucesso"));
+                return $this->redirect(['index']);
+            } else {
+                Yii::$app->getSession()->addFlash('danger', Yii::t('yii', "Erro ao Atualizar"));
+            }
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -98,6 +117,9 @@ class UserController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {

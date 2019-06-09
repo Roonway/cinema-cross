@@ -1,4 +1,6 @@
 <?php
+
+use common\helpers\DateHelper;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
@@ -25,28 +27,26 @@ $user = Yii::$app->user->identity;
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                        <img src="/images/user.png" class="user-image" alt="User Image"/>
                         <span class="hidden-xs"> <?= $user->username ?> </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
-                                 alt="User Image"/>
-
+                           <img src="/images/user.png" class="img-circle" alt="User Image"/>
                             <p>
-                                <?= $user->username . ' - ' ?>
-                                <small>Member since Nov. 2012</small>
+                                <?= $user->username . ' - ' . ($user->isSuperAdmin ? 'Administrador' : 'Funcicnário')?>
+                                <small>Cadastrado desde <?=DateHelper::RegistrationDate($user->created_at) ?></small>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <?= Html::a('Perfil',['user/view', 'id' => $user->id],['class'=>'btn btn-default btn-flat']) ?>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Sign out',
+                                    'Sair',
                                     ['/site/logout'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                                 ) ?>

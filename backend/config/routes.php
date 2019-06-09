@@ -9,6 +9,7 @@ return [
     'usuario/cadastrar' => 'user/create',
     'usuario/<id:\d+>/atualizar' => 'user/update',
     'usuario/<id:\d+>/excluir' => 'user/delete',
+    'usuario/<id:\d+>/perfil' => 'user/view',
 
     'produto' => 'product/index',
     'produto/cadastrar' => 'product/create',

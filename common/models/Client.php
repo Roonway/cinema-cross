@@ -45,6 +45,7 @@ class Client extends \yii\db\ActiveRecord
             [['name', 'email', 'street'], 'string', 'max' => 255],
             [['district', 'city'], 'string', 'max' => 50],
             [['email'], 'unique'],
+            ['email', 'email', 'checkDNS' => true],
         ];
     }
 
