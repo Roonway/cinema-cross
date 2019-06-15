@@ -28,6 +28,8 @@ e adicionar as linhas de código abaixo no final do aquivo
 </VirtualHost>
 ```
 
+Feito isso é necessário acessar a pasta
+
 >C:\xampp\htdocs
 
 e clonar o repositorio. Tendo o repositorio sido clonado, basta acessar a pasta do 
