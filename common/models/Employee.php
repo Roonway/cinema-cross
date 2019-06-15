@@ -47,9 +47,9 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'cpf', 'street', 'district', 'city', 'created_at', 'updated_at'], 'required'],
+            [['name', 'cpf', 'street', 'district', 'city'], 'required'],
             [['birthday'], 'safe'],
-            [['room_id', 'manager', 'created_at', 'updated_at'], 'integer'],
+            [['room_id', 'manager'], 'integer'],
             [['name', 'email', 'street'], 'string', 'max' => 255],
             [['cpf'], 'string', 'max' => 11],
             [['district', 'city'], 'string', 'max' => 50],

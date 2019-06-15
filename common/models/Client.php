@@ -47,8 +47,8 @@ class Client extends \yii\db\ActiveRecord
     {
         return [
             [['birthday'], 'safe'],
-            [['number', 'created_at', 'updated_at'], 'integer'],
-            [['city', 'created_at', 'updated_at'], 'required'],
+            [['number',], 'integer'],
+            [['city',], 'required'],
             [['name', 'email', 'street'], 'string', 'max' => 255],
             [['district', 'city'], 'string', 'max' => 50],
             [['email'], 'unique'],

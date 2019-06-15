@@ -20,6 +20,16 @@ use dmstr\widgets\Menu;
                         'url' => ['user/index'],
                     ],
                     [
+                        'label' => 'Funcionário',
+                        'icon' => 'black-tie',
+                        'url' => ['employee/index'],
+                    ],
+                    [
+                        'label' => 'Cliente',
+                        'icon' => 'user',
+                        'url' => ['client/index'],
+                    ],
+                    [
                         'label' => 'Assentos',
                         'icon' => 'toggle-down',
                         'url' => ['seat/index'],
@@ -58,16 +68,6 @@ use dmstr\widgets\Menu;
                         'label' => 'Produtos',
                         'icon' => 'cube',
                         'url' => ['product/index'],
-                    ],
-                    [
-                        'label' => 'Cliente',
-                        'icon' => 'user',
-                        'url' => ['client/index'],
-                    ],
-                    [
-                        'label' => 'Funcionário',
-                        'icon' => 'black-tie',
-                        'url' => ['employee/index'],
                     ],
                     [
                         'label' => 'Diretor',

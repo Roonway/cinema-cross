@@ -3,9 +3,9 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=cinema',
-            'username' => 'root',
-            'password' => '',
+            'dsn' => 'database.ccdslczvlhfu.us-east-1.rds.amazonaws.com',
+            'username' => 'cinema',
+            'password' => 'cinema',
             'charset' => 'utf8',
         ],
         'mailer' => [

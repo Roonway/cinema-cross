@@ -38,13 +38,7 @@ use yii\widgets\ActiveForm;
                 ]
         ]) ?>
 
-        <?= $form->field($model, 'manager')->widget(Select2::class,[
-                'data' => ArrayHelper::map(Employee::find()->all(),'id','name'),
-                'theme' => Select2::THEME_DEFAULT,
-                'pluginOptions' => [
-                        'placeholder' => 'Escolha um gerente'
-                ]
-        ]) ?>
+        <?= $form->field($model, 'manager')->radioList([true => 'Sim', false => 'Não'])?>
 
     </div>
     <div class="box-footer">
