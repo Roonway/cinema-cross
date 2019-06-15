@@ -47,7 +47,7 @@ $this->title = 'Entrar';
 
         <div class="row">
             <div class="col-xs-8">
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                <?= $form->field($model, 'rememberMe')->checkbox()->label('Lembrar de mim') ?>
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
@@ -57,9 +57,8 @@ $this->title = 'Entrar';
         </div>
         <?php ActiveForm::end(); ?>
 
-        <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>
-
+        <a href="#">Recuperar Senha</a><br>
+        <!--<a href="register.html" class="text-center">Register a new membership</a> -->
     </div>
     <!-- /.login-box-body -->
 </div><!-- /.login-box -->
