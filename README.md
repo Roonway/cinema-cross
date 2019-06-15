@@ -1,60 +1,69 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
-    <br>
-</p>
+# Projeto Cinema-Planet
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+Para rodar esse sistema é necessario ter o [XAMPP](https://www.apachefriends.org/xampp-files/7.3.6/xampp-windows-x64-7.3.6-1-VC15-installer.exe), [composer](https://getcomposer.org/Composer-Setup.exe) e o [Git](https://git-scm.com/download/win) for Windows instalado em sua máquina e criar um banco de dado chamado **cinema** no MySQL WorkBench em seguida é necessario acessar a pasta:
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
+Por fim é só abrir o arquivo **httpd-vhosts** do apache na pasta
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
+>C:\xampp\apache\conf\extra
 
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
-
-DIRECTORY STRUCTURE
--------------------
+e adicionar as linhas de código abaixo no final do aquivo
 
 ```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
+# Cinema Cross
+
+<VirtualHost *:80>
+	ServerAdmin roneyjoab@gmail.com
+    DocumentRoot "C:/xampp/htdocs/cinema-planet/backend/web"
+    ServerName cinemaplanet.adm.localhost
+    ErrorLog "logs/cinemaplanet.log"
+    CustomLog "logs/cinemaplanet.log" common
+</VirtualHost>
+
+<VirtualHost *:80>
+	ServerAdmin roneyjoab@gmail.com
+    DocumentRoot "C:/xampp/htdocs/cinema-planet/frontend/web"
+    ServerName cinemaplanet.localhost
+    ErrorLog "logs/cinemaplanet.log"
+    CustomLog "logs/cinemaplanet.log" common
+</VirtualHost>
 ```
+
+>C:\xampp\htdocs
+
+e clonar o repositorio. Tendo o repositorio sido clonado, basta acessar a pasta do 
+repositorio em seu computador abrir o console git Bash e inserir as seguintes comandos:
+
+
+```
+composer require fxp/composer-asset-plugin
+composer isntall
+```
+
+em seguida executar o comando
+
+```
+php init
+```
+
+e escolher a opção "0 - Develouper" e em seguida "Yes".
+
+após o comando php init ser finalizado, basta inserir os seguintes comandos:
+
+```
+php yii migrate all
+
+```
+
+em seguida 
+
+```
+php yii seeder
+```
+por fim é só startar o Apache e o MySQL no XAMPP, abrir o navegador acessar o site [cinemaplanet.adm.localhost](cinemaplanet.adm.localhost)
+e fazer o login:
+
+> login: professor@gmail.com
+> senha: admin
+
+
+espero que dê certo.

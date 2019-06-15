@@ -19,7 +19,7 @@ class UserSeeder extends TableSeeder{
         $this->enableForeginKeyChecks();
 
 
-        $names = ['Roney', 'Emanuel', 'Gregory'];
+        $names = ['Roney', 'Emanuel', 'Gregory', 'Professor'];
 
         foreach ($names as $name){
             $this->insert('{{%user}}', [
