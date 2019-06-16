@@ -61,12 +61,12 @@ return [
     'sessao/<id:\d+>/excluir' => 'session/delete',
     'sessao/<id:\d+>/detalhes' => 'session/view',
 
-    'ingresso/cadastrar' => 'ticket/create',
+    'ingresso' => 'ticket/index',
     'ingresso/<id:\d+>/atualizar' => 'ticket/update',
     'ingresso/<id:\d+>/excluir' => 'ticket/delete',
     'ingresso/<id:\d+>/detalhes' => 'ticket/view',
 
-    'venda/cadastrar' => 'sale/create',
+    'venda' => 'sale/index',
     'venda/<id:\d+>/atualizar' => 'sale/update',
     'venda/<id:\d+>/excluir' => 'sale/delete',
     'venda/<id:\d+>/detalhes' => 'sale/view',
